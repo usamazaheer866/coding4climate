@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Pollution Awareness</title>
+    <style>
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00bfff;
+}
+
+.section {
+    text-align: center;
+    position: relative;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 100px 20px;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.content p {
+    max-width: 600px;
+    margin: 0 auto 40px; /* Center align paragraphs */
+}
+
+.section-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px; /* Set a fixed height */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.section-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#intro .section-bg {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%), url('https://cdn.firstcry.com/education/2022/05/03124542/1211334679.jpg');
+}
+
+#sources .section-bg {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%), url('https://img.freepik.com/premium-photo/waste-water-discharge-from-industrial-facility_611870-6277.jpg?w=740');
+}
+
+#impact .section-bg {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%), url('https://webassets.oxfamamerica.org/media/images/What-is-famine-drought.original.jpg');
+}
+
+#solutions .section-bg {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%), url('https://s.yimg.com/ny/api/res/1.2/sAvGjhqvZzOzM._3cairdA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQyNg--/https://media.zenfs.com/en/reuters.com/1779eec76dd1d0b68a246374b3d25e72');
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+</style>
+<script>
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Fade-in animation for sections on scroll
+const sections = document.querySelectorAll('section');
+
+const fadeInSections = () => {
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (sectionTop < windowHeight * 0.9) {
+            section.classList.add('fadeIn');
+        } else {
+            section.classList.remove('fadeIn');
+        }
+    });
+};
+
+window.addEventListener('scroll', fadeInSections);
+window.addEventListener('resize', fadeInSections);
+
+// Highlight active navigation item based on scroll position
+const navLinks = document.querySelectorAll('nav a');
+
+const highlightNav = () => {
+    const fromTop = window.scrollY;
+
+    navLinks.forEach(link => {
+        const section = document.querySelector(link.hash);
+
+        if (
+            section.offsetTop <= fromTop + 150 &&
+            section.offsetTop + section.offsetHeight > fromTop + 150
+        ) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+};
+
+window.addEventListener('scroll', highlightNav);
+window.addEventListener('resize', highlightNav);
+
+</script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#sources">Sources</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#credits">Credits</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="intro" class="section">
+        <div class="content">
+            <h2>About Water Pollution</h2>
+            <p>Water pollution is a pressing global issue, with far-reaching consequences for both human health and the environment. Access to safe and affordable clean drinking water is a fundamental human right, yet millions of people around the world continue to face challenges in obtaining this basic necessity due to water pollution.</p>
+            <img src="https://cdn.firstcry.com/education/2022/05/03124542/1211334679.jpg" alt="Image 1">
+        </div>
+    </section>
+    <section id="sources" class="section">
+        <div class="content">
+            <h2>Primary Sources of Water Pollution</h2>
+            <p>One of the primary sources of water pollution is industrial discharge, where factories and manufacturing plants release pollutants directly into rivers, lakes, and oceans.</p>
+            <img src="https://img.freepik.com/premium-photo/waste-water-discharge-from-industrial-facility_611870-6277.jpg?w=740" alt="Image 2">
+        </div>
+    </section>
+    <section id="impact" class="section">
+        <div class="content">
+            <h2>Impact on Human Health</h2>
+            <p>The impact of water pollution on human health is profound, with millions of people suffering from waterborne diseases such as cholera, dysentery, and typhoid each year.</p>
+            <img src="https://webassets.oxfamamerica.org/media/images/What-is-famine-drought.original.jpg" alt="Image 3">
+        </div>
+    </section>
+    <section id="solutions" class="section">
+        <div class="content">
+            <h2>Solutions</h2>
+            <p>Addressing water pollution and ensuring access to safe and affordable clean drinking water requires a multifaceted approach involving government regulation, community engagement, and technological innovation.</p>
+            <img src="https://s.yimg.com/ny/api/res/1.2/sAvGjhqvZzOzM._3cairdA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQyNg--/https://media.zenfs.com/en/reuters.com/1779eec76dd1d0b68a246374b3d25e72" alt="Image 4">
+        </div>
+    </section>
+    <footer id="credits">
+        <p>&copy; 2024 Water Awareness | Created by Haziq Mahmood</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
