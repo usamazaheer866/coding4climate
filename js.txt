@@ -1,0 +1,52 @@
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Fade-in animation for sections on scroll
+const sections = document.querySelectorAll('section');
+
+const fadeInSections = () => {
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (sectionTop < windowHeight * 0.9) {
+            section.classList.add('fadeIn');
+        } else {
+            section.classList.remove('fadeIn');
+        }
+    });
+};
+
+window.addEventListener('scroll', fadeInSections);
+window.addEventListener('resize', fadeInSections);
+
+// Highlight active navigation item based on scroll position
+const navLinks = document.querySelectorAll('nav a');
+
+const highlightNav = () => {
+    const fromTop = window.scrollY;
+
+    navLinks.forEach(link => {
+        const section = document.querySelector(link.hash);
+
+        if (
+            section.offsetTop <= fromTop + 150 &&
+            section.offsetTop + section.offsetHeight > fromTop + 150
+        ) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+};
+
+window.addEventListener('scroll', highlightNav);
+window.addEventListener('resize', highlightNav);
